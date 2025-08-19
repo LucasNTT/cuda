@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="common">
+      <UniqueIdentifier>{29be0256-ca42-4e26-a006-483bc72075ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kernels">
+      <UniqueIdentifier>{ef25bfe3-b0c1-4f24-8691-92042728fb77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core">
+      <UniqueIdentifier>{b342c4cc-a86d-4bc3-9866-34ad18cabbf2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="common\common.cu">
+      <Filter>common</Filter>
+    </CudaCompile>
+    <CudaCompile Include="ntt_lengths.cu" />
+    <CudaCompile Include="lucas_prp.cu" />
+    <CudaCompile Include="main_process.cu" />
+    <CudaCompile Include="process.cu" />
+    <CudaCompile Include="kernel_pool.cu" />
+    <CudaCompile Include="kernel.cu" />
+    <CudaCompile Include="kernel_factory.cu" />
+    <CudaCompile Include="kernels\gmem.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="common\pre_calculation.cu">
+      <Filter>common</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\r2b.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\w_fft_sqr_ifft_uw__r2_8to4k.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\fftc_tw__r2_8to4k.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\tw_ifftc__r2_8to4k.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\w_fft_sqr_ifft_uw__r4_16to4k.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\w_fft_sqr_ifft_uw__r8_4096.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\fftr_sqr_ifftr__r2_32x32_1024.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\fftr_sqr_ifftr__r2_8to4k.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\w_fftc_tw__r2_8to4k.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\tw_ifftc_uw__r2_8to4k.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\fftr_sqr_ifftr__r4_16to4k.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\w_transpose.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\transpose_tw.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\fftr__r2_8to4k.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\tw_transpose.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\transpose_uw.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\ifftr__r2_8to4k.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\m2.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\w_fftr__r2_8to4k.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\ifftr_uw__r2_8to4k.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\r2b__tr.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\m2__tr.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="common\debug.cu">
+      <Filter>common</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\transpose.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\fftr_tw__r2_8to4k.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\transpose__back.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\fftr_sqr_ifftr__cg_r2_8to4k.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\fftr__cg_r2_8to4k.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernels\ifftr__cg_r2_8to4k.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="common\common.cuh">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="data_contexts.cuh" />
+    <ClInclude Include="ntt_lengths.cuh" />
+    <ClInclude Include="common\arithmetics.cuh">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="lucas_prp.cuh" />
+    <ClInclude Include="ConvertUTF.h" />
+    <ClInclude Include="main_process.cuh" />
+    <ClInclude Include="process.cuh" />
+    <ClInclude Include="SimpleIni.h" />
+    <ClInclude Include="kernel_pool.cuh" />
+    <ClInclude Include="kernel.cuh" />
+    <ClInclude Include="kernel_factory.cuh" />
+    <ClInclude Include="kernels\gmem.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="common\pre_calculation.cuh">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\r2b.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\w_fft_sqr_ifft_uw__r2_8to4k.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\fftc_tw__r2_8to4k.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\tw_ifftc__r2_8to4k.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\w_fft_sqr_ifft_uw__r4_16to4k.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\w_fft_sqr_ifft_uw__r8_4096.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\fftr_sqr_ifftr__r2_32x32_1024.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\fftr_sqr_ifftr__r2_8to4k.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\w_fftc_tw__r2_8to4k.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\tw_ifftc_uw__r2_8to4k.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="core\fft_r2.cuh">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\fft_r4.cuh">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\fftr_sqr_ifftr__r4_16to4k.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="core\transpose_oop.cuh">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\w_transpose.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\transpose_tw.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\fftr__r2_8to4k.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\tw_transpose.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\transpose_uw.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\ifftr__r2_8to4k.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\m2.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\w_fftr__r2_8to4k.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\ifftr_uw__r2_8to4k.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\r2b__tr.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="core\atomic.cuh">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\m2__tr.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="common\debug.cuh">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\memory_tracker.cuh">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\transpose.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\fftr_tw__r2_8to4k.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\transpose__back.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\fftr_sqr_ifftr__cg_r2_8to4k.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\fftr__cg_r2_8to4k.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels\ifftr__cg_r2_8to4k.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ConvertUTF.c" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+</Project>
