@@ -27,8 +27,9 @@ __global__ void calc_weights_widths(uint32_t n, uint32_t exponent, uint64_t* wei
 		unweights[0] = inv_Mod(n);
 	}
 	else {
-		uint32_t r = (exponent * tid) & (n - 1); // (exponent * tid) mod N
-		weights[tid] = pow_Mod(7, (MODULO - 1) / 192 / n * 5 * (n - r));
+		uint32_t r = (exponent * tid) & (n - 1); // (exponent * tid) mod N -- note: exponent * tid will overflow on 32 bits, but no worries we are only interrested by the lowest bits
+		uint64_t exp = ((MODULO - 1) / 192 / n) * 5ULL * (uint64_t)(n - r);
+		weights[tid] = pow_Mod(7, exp);
 		unweights[tid] = inv_Mod(mul_Mod(weights[tid], n));
 	}
 	widths[tid] = (uint8_t)(ceil(1.0 * exponent * (tid + 1) / n) - ceil(1.0 * exponent * tid / n));
@@ -43,7 +44,8 @@ __global__ void calc_weights_widths_stride(uint32_t n, uint32_t exponent, uint32
 	}
 	else {
 		uint32_t r = (exponent * tid) & (n - 1); // (exponent * tid) mod n
-		weights[blockIdx.x + (threadIdx.x << stride)] = pow_Mod(7, (MODULO - 1) / 192 / n * 5 * (n - r));
+		uint64_t exp = ((MODULO - 1) / 192 / n) * 5ULL * (uint64_t)(n - r);
+		weights[blockIdx.x + (threadIdx.x << stride)] = pow_Mod(7, exp);
 		unweights[blockIdx.x + (threadIdx.x << stride)] = inv_Mod(mul_Mod(weights[tid], n));
 	}
 	widths[tid] = (uint8_t)(ceil(1.0 * exponent * (tid + 1) / n) - ceil(1.0 * exponent * tid / n));

@@ -29,6 +29,7 @@ __global__ void minus_two_transposed(uint64_t* x, const uint8_t* __restrict__ wi
 		uint64_t mask = (((uint64_t)1) << widths[0]) - 1;
 		x[0] = x[0] & mask;
 		int id = 0;
+		int wid = 0;
 		bool cf = true;
 		while (cf) {
 			id += stride;
@@ -36,14 +37,14 @@ __global__ void minus_two_transposed(uint64_t* x, const uint8_t* __restrict__ wi
 				uint32_t col = id & (stride - 1);
 				id = (col + 1 >= stride) ? 0 : col + 1;
 			}
-			mask = (((uint64_t)1) << widths[id]) - 1;
+			wid = (wid == n) ? 0 : wid + 1; // widths are not transposed, so a regular index without stride is needed
+			mask = (((uint64_t)1) << widths[wid]) - 1;
 			a = x[id];
 			x[id] = (a - 1) & mask;
 			cf = a == 0;
 		}
 	}
 }
-
 
 m2__tr::m2__tr(LucasPRPData* lucasPRPData, Length* length, uint32_t count, uint32_t stride)
 	: Kernel(lucasPRPData, length, count, stride) {

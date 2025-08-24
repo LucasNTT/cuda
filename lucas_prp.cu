@@ -197,8 +197,10 @@ void LucasPRP::Run() {
 void LucasPRP::MainLoop() {
 	uint64_t j = 0;
 	uint64_t k = 0;
-	uint64_t pitStop =  (uint64_t)((60.0 * 1000.0 * (double)common::PerformanceLoops) / (double)Performance); // display progress every minute
-	uint64_t dumpIteration = (uint64_t)((3600.0 * 1000.0 * (double)common::PerformanceLoops) / (double)Performance); // dump residue every hour
+	double tmp =  (uint64_t)((60.0 * 1000.0 * (double)common::PerformanceLoops) / (double)Performance) * 0.98; // display progress every minute, compensate initial evaluation of performance by 2% due to GPU warm-up
+	uint64_t pitStop = static_cast<uint64_t>(tmp);
+	tmp = (uint64_t)((3600.0 * 1000.0 * (double)common::PerformanceLoops) / (double)Performance) * 0.98; // dump residue every hour
+	uint64_t dumpIteration = static_cast<uint64_t>(tmp);
 
 	for (parentData->currentIteration = parentData->fromIteration; parentData->currentIteration <= parentData->iterations; parentData->currentIteration++) {
 		if (parentData->interrupted) break;
