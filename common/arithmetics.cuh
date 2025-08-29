@@ -8,6 +8,12 @@ copies of the Software, and to permit persons to whom the Software is furnished 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
+/*
+A part of this file has been migrated from https://github.com/ncw/iprime
+Copyright (C) 2012 by Nick Craig-Wood http://www.craig-wood.com/nick/
+*/
+
+
 #include "cuda_runtime.h"
 #include "device_launch_parameters.h"
 #include <stdint.h>
@@ -23,10 +29,6 @@ const uint64_t MODULO = 0xFFFFFFFF00000001;
 /// Arithmetic modulo p
 ///
  
-
-/*
-A large part of the code in this file has been inspired by Nick Craig-Wood in the iprime project (https://github.com/ncw/iprime)
-*/
 
 ///
 /// Addition x + y (mod p)
@@ -61,7 +63,6 @@ __device__ __inline__ uint64_t neg_Mod(uint64_t x)
 /// Multiplication x * y (mod p)
 ///
 ///  
-
 __device__ __inline__ uint64_t mul_Mod(uint64_t x, uint64_t y)
 {
 	// The first step is to compute a 128-bit result by a regular multiplication
@@ -183,7 +184,10 @@ __device__ __inline__ uint64_t inv_Mod(uint64_t a)
 	return pow_Mod(a, MODULO - 2);
 }
 
-
+//
+// Shift arithmetics, the code below until the end of this file, has been migrated from https://github.com/ncw/iprime
+// Copyright (C) 2012 by Nick Craig-Wood http://www.craig-wood.com/nick/
+//
 __device__ __inline__ uint64_t shift_0_to_31(uint64_t x, int shift) {
 	uint64_t reslo = x << shift;
 	uint64_t reshi = x >> (64 - shift);
